@@ -22,7 +22,7 @@ public class orders {
                 double price = Double.parseDouble(p[4].trim());
                 double sum = qty * price;
                 total += sum;
-                System.out.printf("Pasūtījums #%d: %s pasūtīja %d x %s (%.2f EUR) -> Kopā: %.2f EUR%n",
+                System.out.printf("Pasūtījums #"+ ID +":"+ Name +%s pasūtīja %d x %s (%.2f EUR) -> Kopā: %.2f EUR%n",
                         idx, name, qty, product, price, sum);
                 idx++;
             }
