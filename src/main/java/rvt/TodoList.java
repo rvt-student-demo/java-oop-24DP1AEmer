@@ -1,54 +1,43 @@
 package rvt;
 
 import java.util.ArrayList;
-import java.io.File;
 
 public class TodoList {
-        private ArrayList<String> list;
+    private ArrayList<String> tasks;
 
-    public TodoList () {
-        this.list = new ArrayList<>();
-    }
-    public void add (String task) {
-        this.list.add(task);
+    public TodoList() {
+        this.tasks = new ArrayList<>();
     }
 
-    public void print () {
-        int i = 1;
-        for (String task : list) {
-            System.out.println(i + ": " + task);
-            i++;
+    public void add(String task) {
+        this.tasks.add(task);
+    }
+
+    public void print() {
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println((i + 1) + ": " + tasks.get(i));
         }
     }
 
-    public void remove (int number) {
-        this.list.remove(number-1);
+    public void remove(int number) {
+        // number is 1-based in the exercise
+        this.tasks.remove(number - 1);
     }
-	
-	public static void main(String[] args) {
-        File csv = new File("src\\main\\java\\rvt\\TodoList.csv");
-		TodoList list = new TodoList();
-         try {
-          
-    
-        }
-        
-        catch (ArithmeticException e) {
-           
-        }
 
-        System.out.println("I will always execute");
-    
-		list.add("read the course material");
-		list.add("watch the latest fool us");
-		list.add("take it easy");
+    // Small demo showing the sample behavior from the exercise
+    public static void main(String[] args) {
+        TodoList list = new TodoList();
+        list.add("go to the store");
+        list.add("vacuum clean");
+        list.print();
 
-		list.print();
-		list.remove(2);
-        
+        list.remove(2);
+        System.out.println();
+        list.print();
 
-		System.out.println();
-		list.print();
-
+        list.add("program");
+        System.out.println();
+        list.print();
+    }
 }
-}
+
